@@ -41,6 +41,12 @@ namespace EmotivUnityPlugin
         public string TrainingLog { get => _trainingLog; set => _trainingLog = value; }
         public string MessageLog { get => _messageLog; set => _messageLog = value; }
 
+        // Performance Metric Variables
+
+        public double attentionPow;
+        public double relaxationPow;
+        public double stressPow;
+
         public class MentalComm{
             public string act = "NULL";
             public double pow = 0;
@@ -530,14 +536,69 @@ namespace EmotivUnityPlugin
             UnityEngine.Debug.Log(dataText);
         }
 
+        // This function fetches the Performance Metric values from an ArrayList.
         private void OnPerfDataReceived(object sender, ArrayList e)
         {
-            string dataText = "met data: ";
-            foreach (var item in e) {
-                dataText += item.ToString() + ",";
+            // Stores All Performance Metric values inside string.
+            string debugStr = "Performance Metrics :: Attention : ";
+
+            // This for-loop cycles through the list of data recieved from Performance Metrics.
+            for (int i = 0; i < e.Count; i++)
+            {
+                // This switch-statement finds specific Performance Metric data from the array, and assigns them to variables.
+                switch (i)
+                {
+
+                    // case 0: e[i] == Time elapsed (?).
+                    // case 1: e[i] == Attention.isActive.
+
+                    case 2:
+
+                        // Gets the "Attention" Performance Metric.
+                        attentionPow = Convert.ToDouble(e[i]);
+
+                        // Outputs value to console log.
+                        string debugPow = attentionPow + "/1,  Relaxation : ";
+                        debugStr += debugPow;
+
+                        break;
+
+                    // case 3: e[i] == Engagement.isActive.
+                    // case 4: e[i] == Engagement.value.
+                    // case 5: e[i] == Excitement.isActive.
+                    // case 6: e[i] == Excitement.value.
+                    // case 7: e[i] == Interest.isActive.
+                    // case 8: e[i] == Interest.value.
+
+                    case 9:
+
+                        // Gets the "Relaxation" Performance Metric.
+                        relaxationPow = Convert.ToDouble(e[i]);
+
+                        // Outputs value to console log.
+                        debugPow = relaxationPow + "/1, Stress : ";
+                        debugStr += debugPow;
+
+                        break;
+
+                    // case 10: e[i] == Stress.isActive.
+
+                    case 11:
+
+                        // Gets the "Stress" Performance Metric.
+                        stressPow = Convert.ToDouble(e[i]);
+
+                        // Outputs value to console log.
+                        debugPow = stressPow + "/1";
+                        debugStr += debugPow;
+
+                        break;
+                }
             }
-            // print out data to console
-            UnityEngine.Debug.Log(dataText);
+
+            // Outputs Performance Metric values to console log.
+            UnityEngine.Debug.Log(debugStr);
+
         }
 
         private void OnDevDataReceived(object sender, ArrayList e)
