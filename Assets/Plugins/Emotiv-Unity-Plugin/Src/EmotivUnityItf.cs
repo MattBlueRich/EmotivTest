@@ -47,6 +47,20 @@ namespace EmotivUnityPlugin
         public double relaxationPow;
         public double stressPow;
 
+        // Band Power Variables
+
+        public double thetaPow;
+        public double alphaPow;
+        public double betaLPow;
+        public double betaHPow;
+        public double gammaPow;
+
+        double _theta;
+        double _alpha;
+        double _betaL;
+        double _betaH;
+        double _gamma;
+
         public class MentalComm{
             public string act = "NULL";
             public double pow = 0;
@@ -528,12 +542,44 @@ namespace EmotivUnityPlugin
         // Handle events  if we do not use data buffer of Emotiv Unity Plugin
         private void OnBandPowerDataReceived(object sender, ArrayList e)
         {
-            string dataText = "pow data: ";
-            foreach (var item in e) {
-                dataText += item.ToString() + ",";
+            int bandType = 1;
+
+            for(int i = 1; i < e.Count; i++)
+            {
+                switch (bandType)
+                {
+                    case 1:
+                        _theta += Convert.ToDouble(e[i]);
+                        bandType++;
+                        break;
+                    case 2:
+                        _alpha += Convert.ToDouble(e[i]);
+                        bandType++;
+                        break;
+                    case 3:
+                        _betaL += Convert.ToDouble(e[i]);
+                        bandType++;
+                        break;
+                    case 4:
+                        _betaH += Convert.ToDouble(e[i]);
+                        bandType++;
+                        break;
+                    case 5:
+                        _gamma += Convert.ToDouble(e[i]);
+                        bandType = 1;
+                        break;
+                }
             }
-            // print out data to console
-            UnityEngine.Debug.Log(dataText);
+
+            UnityEngine.Debug.Log("Theta: " + System.Math.Round(_theta/14, 2) + " Alpha: " + System.Math.Round(_alpha / 14, 2) +
+                " Low Beta: " + System.Math.Round(_betaL / 14, 2) + " High Beta: " + System.Math.Round(_betaH / 14, 2) +
+                " Gamma: " + System.Math.Round(_gamma / 14, 2));
+
+            _theta = 0;
+            _alpha = 0;
+            _betaL = 0;
+            _betaH = 0;
+            _gamma = 0;
         }
 
         // This function fetches the Performance Metric values from an ArrayList.
