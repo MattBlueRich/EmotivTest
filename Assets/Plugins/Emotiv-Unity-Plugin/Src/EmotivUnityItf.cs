@@ -604,7 +604,7 @@ namespace EmotivUnityPlugin
                         attentionPow = Convert.ToDouble(e[i]);
 
                         // Outputs value to console log.
-                        string debugPow = attentionPow + "/1,  Relaxation : ";
+                        string debugPow = attentionPow + "/1,  Stress : ";
                         debugStr += debugPow;
 
                         break;
@@ -618,24 +618,24 @@ namespace EmotivUnityPlugin
 
                     case 9:
 
-                        // Gets the "Relaxation" Performance Metric.
-                        relaxationPow = Convert.ToDouble(e[i]);
-
-                        // Outputs value to console log.
-                        debugPow = relaxationPow + "/1, Stress : ";
-                        debugStr += debugPow;
-
-                        break;
-
-                    // case 10: e[i] == Stress.isActive.
-
-                    case 11:
-
                         // Gets the "Stress" Performance Metric.
                         stressPow = Convert.ToDouble(e[i]);
 
                         // Outputs value to console log.
-                        debugPow = stressPow + "/1";
+                        debugPow = stressPow + "/1, Relaxation : ";
+                        debugStr += debugPow;
+
+                        break;
+
+                    // case 10: e[i] == Relaxation.isActive.
+
+                    case 11:
+
+                        // Gets the "Relaxation" Performance Metric.
+                        relaxationPow = Convert.ToDouble(e[i]);
+
+                        // Outputs value to console log.
+                        debugPow = relaxationPow + "/1";
                         debugStr += debugPow;
 
                         break;

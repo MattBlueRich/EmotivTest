@@ -268,33 +268,34 @@ public class SimpleExample : MonoBehaviour
         }
 
         // make startRecordBtn interactable
-        Button startRecordBtn = GameObject.Find("RecordPart").transform.Find("startRecordBtn").GetComponent<Button>();
+
+        //Button startRecordBtn = GameObject.Find("RecordPart").transform.Find("startRecordBtn").GetComponent<Button>();
         Button subscribeBtn = GameObject.Find("SubscribeDataPart").transform.Find("subscribeBtn").GetComponent<Button>();
         Button unsubscribeBtn = GameObject.Find("SubscribeDataPart").transform.Find("unsubscribeBtn").GetComponent<Button>();
-        Button loadProfileBtn = GameObject.Find("TrainingPart").transform.Find("loadProfileBtn").GetComponent<Button>();
-        Button unloadProfileBtn = GameObject.Find("TrainingPart").transform.Find("unloadProfileBtn").GetComponent<Button>();
-        Button saveProfileBtn = GameObject.Find("TrainingPart").transform.Find("saveProfileBtn").GetComponent<Button>();
-        Button rejectTrainingBtn = GameObject.Find("TrainingPart").transform.Find("rejectTrainingBtn").GetComponent<Button>();
-        Button eraseTrainingBtn = GameObject.Find("TrainingPart").transform.Find("eraseTrainingBtn").GetComponent<Button>();
-        Button acceptTrainingBtn = GameObject.Find("TrainingPart").transform.Find("acceptTrainingBtn").GetComponent<Button>();
-        Button startTrainingBtn = GameObject.Find("TrainingPart").transform.Find("startTrainingBtn").GetComponent<Button>();
-        Button stopRecordBtn = GameObject.Find("RecordPart").transform.Find("stopRecordBtn").GetComponent<Button>();
-        Button injectMarkerBtn = GameObject.Find("RecordPart").transform.Find("injectMarkerBtn").GetComponent<Button>();
+        //Button loadProfileBtn = GameObject.Find("TrainingPart").transform.Find("loadProfileBtn").GetComponent<Button>();
+        //Button unloadProfileBtn = GameObject.Find("TrainingPart").transform.Find("unloadProfileBtn").GetComponent<Button>();
+        //Button saveProfileBtn = GameObject.Find("TrainingPart").transform.Find("saveProfileBtn").GetComponent<Button>();
+        //Button rejectTrainingBtn = GameObject.Find("TrainingPart").transform.Find("rejectTrainingBtn").GetComponent<Button>();
+        //Button eraseTrainingBtn = GameObject.Find("TrainingPart").transform.Find("eraseTrainingBtn").GetComponent<Button>();
+        //Button acceptTrainingBtn = GameObject.Find("TrainingPart").transform.Find("acceptTrainingBtn").GetComponent<Button>();
+        //Button startTrainingBtn = GameObject.Find("TrainingPart").transform.Find("startTrainingBtn").GetComponent<Button>();
+        //Button stopRecordBtn = GameObject.Find("RecordPart").transform.Find("stopRecordBtn").GetComponent<Button>();
+        //Button injectMarkerBtn = GameObject.Find("RecordPart").transform.Find("injectMarkerBtn").GetComponent<Button>();
 
-        startRecordBtn.interactable = _eItf.IsSessionCreated;
+        //startRecordBtn.interactable = _eItf.IsSessionCreated;
         subscribeBtn.interactable = _eItf.IsSessionCreated;
         unsubscribeBtn.interactable = _eItf.IsSessionCreated;
-        loadProfileBtn.interactable = _eItf.IsSessionCreated;
+        //loadProfileBtn.interactable = _eItf.IsSessionCreated;
 
-        saveProfileBtn.interactable = _eItf.IsProfileLoaded;
-        startTrainingBtn.interactable = _eItf.IsProfileLoaded;
-        rejectTrainingBtn.interactable = _eItf.IsProfileLoaded;
-        eraseTrainingBtn.interactable = _eItf.IsProfileLoaded;
-        acceptTrainingBtn.interactable = _eItf.IsProfileLoaded;
-        unloadProfileBtn.interactable = _eItf.IsProfileLoaded;
+        //saveProfileBtn.interactable = _eItf.IsProfileLoaded;
+        //startTrainingBtn.interactable = _eItf.IsProfileLoaded;
+        //rejectTrainingBtn.interactable = _eItf.IsProfileLoaded;
+        //eraseTrainingBtn.interactable = _eItf.IsProfileLoaded;
+        //acceptTrainingBtn.interactable = _eItf.IsProfileLoaded;
+        //unloadProfileBtn.interactable = _eItf.IsProfileLoaded;
 
-        stopRecordBtn.interactable = _eItf.IsRecording;
-        injectMarkerBtn.interactable = _eItf.IsRecording;
+        //stopRecordBtn.interactable = _eItf.IsRecording;
+        //injectMarkerBtn.interactable = _eItf.IsRecording;
     }
 
     private List<string> GetStreamsList() {
