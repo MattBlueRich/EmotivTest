@@ -41,6 +41,7 @@ namespace EmotivUnityPlugin
         public string TrainingLog { get => _trainingLog; set => _trainingLog = value; }
         public string MessageLog { get => _messageLog; set => _messageLog = value; }
 
+<<<<<<< HEAD
         // Performance Metric Variables
 
         public double attentionPow;
@@ -61,6 +62,8 @@ namespace EmotivUnityPlugin
         double _betaH;
         double _gamma;
 
+=======
+>>>>>>> parent of 2b4c057 (Store Performance Metric Double Variables)
         public class MentalComm{
             public string act = "NULL";
             public double pow = 0;
@@ -582,9 +585,9 @@ namespace EmotivUnityPlugin
             _gamma = 0;
         }
 
-        // This function fetches the Performance Metric values from an ArrayList.
         private void OnPerfDataReceived(object sender, ArrayList e)
         {
+<<<<<<< HEAD
             // Stores All Performance Metric values inside string.
             string debugStr = "Performance Metrics :: Attention : ";
 
@@ -640,11 +643,14 @@ namespace EmotivUnityPlugin
 
                         break;
                 }
+=======
+            string dataText = "met data: ";
+            foreach (var item in e) {
+                dataText += item.ToString() + ",";
+>>>>>>> parent of 2b4c057 (Store Performance Metric Double Variables)
             }
-
-            // Outputs Performance Metric values to console log.
-            UnityEngine.Debug.Log(debugStr);
-
+            // print out data to console
+            UnityEngine.Debug.Log(dataText);
         }
 
         private void OnDevDataReceived(object sender, ArrayList e)
